@@ -12,7 +12,7 @@ public class EnvConfig {
         return dotenv.get("OPENAI_API_KEY");
     }
 
-    public static String getPromptAgente() {
+    public static String getPromptAgent() {
         return dotenv.get("PROMPT_AGENT");
     }
 
