@@ -2,7 +2,6 @@ package com.citywhisper.client;
 
 import com.citywhisper.client.dto.RequestDTO;
 import com.citywhisper.client.dto.ResponseDTO;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
