@@ -14,7 +14,9 @@ public class RequestClient {
     @Autowired
     private WebClient.Builder webClient;
 
-    public ResponseEntity<Mono<ResponseDTO>> makeRequest (String cep) {
+    //TODO separação de get/post/put/delete adicionando endpoint como tributo durante instancia de Request.
+
+    public ResponseEntity<Mono<ResponseDTO>> get (String cep) {
         return ResponseEntity.ok(webClient.build()
                     .get()
                     .uri("https://brasilapi.com.br/api/cep/v2/" + cep)
