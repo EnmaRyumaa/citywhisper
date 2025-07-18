@@ -2,7 +2,9 @@ package com.citywhisper.client;
 
 import com.citywhisper.client.dto.RequestDTO;
 import com.citywhisper.client.dto.ResponseDTO;
+import com.citywhisper.config.EnvConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -20,13 +22,20 @@ public class RequestClient {
     public Mono<ResponseEntity<ResponseDTO>> get (RequestDTO dto) {
         return webClient.build()
                     .get()
-                    .uri("https://brasilapi.com.br/api/cep/v2/" + dto.getCep())
+                    .uri(dto.getFullPath())
                     .retrieve()
                     .bodyToMono(ResponseDTO.class)
                     .map(ResponseEntity::ok);
     }
 
-    /*public ResponseEntity<Mono<ResponseDTO>> post (String cep, RequestDTO requestDTO) {
-
-    }*/
+    public Mono<ResponseEntity<ResponseDTO>> post (RequestDTO dto) {
+        return webClient.build()
+                .post()
+                .uri(dto.getFullPath())
+                .contentType(MediaType.APPLICATION_JSON)
+                .header("Authorization", "Bearer " + EnvConfig.getApiKey())
+                .retrieve()
+                .bodyToMono(ResponseDTO.class)
+                .map(ResponseEntity::ok);
+    }
 }
