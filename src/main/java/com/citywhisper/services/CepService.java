@@ -17,7 +17,12 @@ public class CepService {
     private RequestClient client;
 
     public ResponseEntity<Mono<ResponseDTO>> getCep(String cep) {
-        ResponseEntity<Mono<ResponseDTO>> response = client.makeRequest(cep);
+        RequestDTO requestDTO = new RequestDTO();
+        requestDTO.setCep(cep);
+        ResponseEntity<Mono<ResponseDTO>> response = client.get(requestDTO);
+        String city = response.getBody().block().getCity();
+        System.out.println(city);
+
 
         return response;
 
