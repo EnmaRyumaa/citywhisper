@@ -12,10 +12,6 @@ public class ResponseDTO {
 
     public ResponseDTO(RequestDTO dto) {
         this.cep = dto.getCep();
-        this.state = dto.getState();
-        this.city = dto.getCity();
-        this.neighborhood = dto.getNeighborhood();
-        this.street = dto.getStreet();
     }
 
     public String getCep() {

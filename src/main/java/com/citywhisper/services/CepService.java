@@ -16,15 +16,17 @@ public class CepService {
     @Autowired
     private RequestClient client;
 
-    public ResponseEntity<Mono<ResponseDTO>> getCep(String cep) {
+    public ResponseEntity<ResponseDTO> getCep(String cep) {
         RequestDTO requestDTO = new RequestDTO();
         requestDTO.setCep(cep);
-        ResponseEntity<Mono<ResponseDTO>> response = client.get(requestDTO);
-        String city = response.getBody().block().getCity();
+        Mono<ResponseEntity<ResponseDTO>> response = client.get(requestDTO);
+        String city = response.block().getBody().getCity();
+        String teste = response.block().getBody().getStreet();
         System.out.println(city);
+        System.out.println(teste);
 
 
-        return response;
+        return response.block();
 
     }
 }

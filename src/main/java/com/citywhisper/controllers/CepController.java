@@ -18,7 +18,7 @@ public class CepController {
     private CepService service;
 
     @GetMapping("/{cep}")
-    public ResponseEntity<Mono<ResponseDTO>> getCep(@PathVariable String cep) {
+    public ResponseEntity<ResponseDTO> getCep(@PathVariable String cep) {
         //TODO trocar retorno para DTO.
         return ResponseEntity.ok(service.getCep(cep)).getBody();
     }

@@ -1,7 +1,5 @@
 package com.citywhisper.client.dto;
 
-import jakarta.persistence.Embedded;
-
 public class RequestDTO {
 
     private String cep;
@@ -19,5 +17,4 @@ public class RequestDTO {
     public void setCep(String cep) {
         this.cep = cep;
     }
-
 }
