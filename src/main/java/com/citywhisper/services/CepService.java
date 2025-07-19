@@ -3,14 +3,11 @@ package com.citywhisper.services;
 import com.citywhisper.client.RequestClient;
 import com.citywhisper.client.chatgpt.builder.ChatBuilder;
 import com.citywhisper.client.dto.ChatGPTRequestDTO;
-import com.citywhisper.client.dto.ChatGPTResponseDTO;
 import com.citywhisper.client.dto.RequestDTO;
 import com.citywhisper.client.dto.ResponseDTO;
-import com.citywhisper.config.EnvConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import reactor.core.publisher.Mono;
 
 @Service
 public class CepService {

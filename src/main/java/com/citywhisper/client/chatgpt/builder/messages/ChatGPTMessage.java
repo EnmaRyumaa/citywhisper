@@ -1,8 +1,7 @@
 package com.citywhisper.client.chatgpt.builder.messages;
 
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 @NoArgsConstructor
 public class ChatGPTMessage {
 

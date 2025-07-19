@@ -2,7 +2,6 @@ package com.citywhisper.client.dto;
 
 import com.citywhisper.client.chatgpt.builder.ChatBuilder;
 import com.citywhisper.client.chatgpt.builder.messages.ChatGPTMessage;
-import com.citywhisper.config.EnvConfig;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
