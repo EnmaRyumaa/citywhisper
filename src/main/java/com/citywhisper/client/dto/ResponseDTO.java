@@ -8,6 +8,8 @@ public class ResponseDTO {
     private String neighborhood;
     private String street;
 
+    private String responseGPT;
+
     public ResponseDTO() {}
 
     public ResponseDTO(RequestDTO dto) {
@@ -33,4 +35,13 @@ public class ResponseDTO {
     public String getStreet() {
         return street;
     }
+
+    public String getResponseGPT() {
+        return responseGPT;
+    }
+
+    public void addResponseGPT(String responseGPT) {
+        this.responseGPT = responseGPT;
+    }
+
 }

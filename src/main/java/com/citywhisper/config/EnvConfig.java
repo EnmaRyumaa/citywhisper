@@ -13,7 +13,7 @@ public class EnvConfig {
 
     @Bean
     public static String getApiKey() {
-        return dotenv.get("OPENAI_API_KEY");
+        return dotenv.get("OPEN_API_KEY");
     }
 
     @Bean

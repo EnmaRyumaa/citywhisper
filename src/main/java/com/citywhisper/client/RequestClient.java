@@ -1,9 +1,12 @@
 package com.citywhisper.client;
 
+import com.citywhisper.client.dto.ChatGPTRequestDTO;
+import com.citywhisper.client.dto.ChatGPTResponseDTO;
 import com.citywhisper.client.dto.RequestDTO;
 import com.citywhisper.client.dto.ResponseDTO;
 import com.citywhisper.config.EnvConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -28,15 +31,15 @@ public class RequestClient {
                     .map(ResponseEntity::ok);
     }
 
-    public Mono<ResponseEntity<RequestDTO>> post (RequestDTO dto) {
+    public Mono<ResponseEntity<ChatGPTResponseDTO>> post (ChatGPTRequestDTO dto) {
         return webClient.build()
                 .post()
                 .uri("https://api.openai.com/v1/chat/completions")
                 .contentType(MediaType.APPLICATION_JSON)
-                .header("Authorization", "Bearer " + EnvConfig.getApiKey())
+                .header(HttpHeaders.AUTHORIZATION, "Bearer " + EnvConfig.getApiKey())
                 .bodyValue(dto)
                 .retrieve()
-                .bodyToMono(RequestDTO.class)
+                .bodyToMono(ChatGPTResponseDTO.class)
                 .map(ResponseEntity::ok);
     }
 }
