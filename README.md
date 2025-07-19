@@ -1,43 +1,78 @@
-# citywhisper
+# CityWhisper
 
-# API REST – Consulta CEP + Curiosidade da Cidade via OpenAI
-
-Projeto Java que implementa uma API RESTful capaz de:
-
-✅ Receber um CEP via requisição HTTP  
-✅ Consultar dados de endereço (rua, bairro, cidade, estado) através da API ViaCEP  
-✅ Extrair o nome da cidade retornada pelo CEP  
-✅ Consultar a OpenAI API para obter uma curiosidade sobre a cidade  
-✅ Retornar ao cliente todas as informações em formato JSON
+A small Spring Boot service that fetches Brazilian postal code (CEP) details and asks OpenAI for an interesting fact about the related city. The service exposes a single REST endpoint and returns the consolidated information in JSON format.
 
 ---
 
-## 🚀 Tecnologias
+## Features
 
-- **Linguagem Backend:** Java 17+
-- **Framework:** Spring Boot
-- **APIs utilizadas:**
-  - [ViaCEP](https://viacep.com.br)
-  - OpenAI API (Chat Completion ou outro endpoint)
-- **Formato de resposta:** JSON
+- Fetch address details from [BrasilAPI](https://brasilapi.com.br) using the informed CEP
+- Query OpenAI's Chat Completions API for a curiosity about the city
+- Respond with the address data plus the generated curiosity
 
 ---
 
-## 🔗 Fluxo da API
+## Technologies
 
-1. Usuário envia requisição com o CEP → `/api/cep/{cep}`
-2. API consulta dados do CEP na ViaCEP
-3. Extrai o nome da cidade
-4. Monta o prompt:  
-   > Me diga uma curiosidade sobre a cidade [nome da cidade].
-5. Envia o prompt à OpenAI API
-6. Retorna ao usuário:
-   - Dados do endereço
-   - Curiosidade sobre a cidade
+- **Java:** 21
+- **Framework:** Spring Boot (WebFlux)
+- **External APIs:**
+  - BrasilAPI
+  - OpenAI API
+
+Environment variables are loaded from a `.env` file using `dotenv-java`.
+
+Required keys:
+
+```
+OPEN_API_KEY=<your OpenAI key>
+PROMPT_AGENT=<system prompt message>
+TEMPERATURE=<model temperature>
+MODEL=<OpenAI model>
+```
 
 ---
 
-## 📥 Exemplo de Requisição
+## Running locally
+
+1. Create a `.env` file with the variables above.
+2. Execute the application with Maven:
+
+```bash
+./mvnw spring-boot:run
+```
+
+The service will start on port `8080` by default.
+
+---
+
+## API usage
+
+Request CEP information and a curiosity with:
 
 ```http
-GET /api/cep/30140-110
+GET /cep/{cep}
+```
+
+Example:
+
+```http
+GET /cep/30140-110
+```
+
+Sample response:
+
+```json
+{
+  "cep": "30140-110",
+  "state": "MG",
+  "city": "Belo Horizonte",
+  "neighborhood": "Centro",
+  "street": "Avenida Amazonas",
+  "responseGPT": "Belo Horizonte foi a primeira cidade planejada do Brasil."
+}
+```
+
+---
+
+With this endpoint the application obtains address data from BrasilAPI and augments it with a city curiosity provided by OpenAI.
