@@ -1,6 +1,7 @@
 package com.citywhisper.services;
 
 import com.citywhisper.client.RequestClient;
+import com.citywhisper.client.chatgpt.builder.ChatBuilder;
 import com.citywhisper.client.dto.RequestDTO;
 import com.citywhisper.client.dto.ResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,10 @@ public class CepService {
         RequestDTO requestDTO = new RequestDTO(cep, endpoint);
         Mono<ResponseEntity<ResponseDTO>> responseCep = client.get(requestDTO);
 
-        //Mono<ResponseEntity<ResponseDTO>> responseChat = client.post(requestDTO);
 
-        //System.out.println(responseChat.block().getBody().getCity());
-        /*String city = response.block().getBody().getCity();
-        String teste = response.block().getBody().getStreet();
+        /*System.out.println(responseChat.block().getBody().toString());
+        String city = responseCep.block().getBody().getCity();
+        String teste = responseCep.block().getBody().getStreet();
         System.out.println(city);
         System.out.println(teste);*/
 

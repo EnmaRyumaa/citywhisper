@@ -1,8 +1,6 @@
 package com.citywhisper.client.chatgpt.builder;
 
 import com.citywhisper.client.chatgpt.enums.RoleEnum;
-import com.citywhisper.client.dto.ChatMessageDTO;
-import com.citywhisper.client.dto.ChatRequestDTO;
 import com.citywhisper.config.EnvConfig;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +14,7 @@ public class ChatBuilder {
     private final String apiKey = EnvConfig.getApiKey();
     private final Double temperature = EnvConfig.getTemperature();
 
-    private final List<ChatMessageDTO> message = new ArrayList<>();;
+    /*private final List<ChatMessageDTO> message = new ArrayList<>();;
 
     public ChatBuilder () {}
 
@@ -28,6 +26,6 @@ public class ChatBuilder {
 
     public ChatRequestDTO build() {
         return new ChatRequestDTO(model, message, temperature);
-    }
+    }*/
 
 }

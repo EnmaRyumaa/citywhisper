@@ -28,14 +28,15 @@ public class RequestClient {
                     .map(ResponseEntity::ok);
     }
 
-    public Mono<ResponseEntity<ResponseDTO>> post (RequestDTO dto) {
+    public Mono<ResponseEntity<RequestDTO>> post (RequestDTO dto) {
         return webClient.build()
                 .post()
-                .uri(dto.getFullPath())
+                .uri("https://api.openai.com/v1/chat/completions")
                 .contentType(MediaType.APPLICATION_JSON)
                 .header("Authorization", "Bearer " + EnvConfig.getApiKey())
+                .bodyValue(dto)
                 .retrieve()
-                .bodyToMono(ResponseDTO.class)
+                .bodyToMono(RequestDTO.class)
                 .map(ResponseEntity::ok);
     }
 }
