@@ -1,4 +1,4 @@
-package com.citywhisper.client.chat.enums;
+package com.citywhisper.client.chatgpt.enums;
 
 public enum RoleEnum {
     SYSTEM("system"),
