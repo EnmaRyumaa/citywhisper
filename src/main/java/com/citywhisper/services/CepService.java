@@ -20,9 +20,9 @@ public class CepService {
         RequestDTO requestDTO = new RequestDTO(cep, endpoint);
         Mono<ResponseEntity<ResponseDTO>> responseCep = client.get(requestDTO);
 
-        Mono<ResponseEntity<ResponseDTO>> responseChat = client.post(requestDTO);
+        //Mono<ResponseEntity<ResponseDTO>> responseChat = client.post(requestDTO);
 
-        System.out.println(responseChat.block().getBody().getCity());
+        //System.out.println(responseChat.block().getBody().getCity());
         /*String city = response.block().getBody().getCity();
         String teste = response.block().getBody().getStreet();
         System.out.println(city);

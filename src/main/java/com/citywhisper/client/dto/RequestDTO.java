@@ -10,6 +10,7 @@ public class RequestDTO {
 
     public RequestDTO(String cep, String endpoint) {
         this.cep = cep;
+        this.endpoint = endpoint;
     }
 
     public String getCep() {
