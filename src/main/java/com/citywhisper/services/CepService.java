@@ -15,7 +15,7 @@ public class CepService {
     @Autowired
     private RequestClient client;
 
-    public ResponseEntity<ResponseDTO> getCep(String cep) {
+    public ResponseDTO getCep(String cep) {
         //TODO Adicionar endpoint no properties ou banco
         String endpoint = "https://brasilapi.com.br/api/cep/v2/";
         RequestDTO requestDTO = new RequestDTO(cep, endpoint);
@@ -37,6 +37,6 @@ public class CepService {
 
         cepBody.addResponseGPT(respostaGPT);
 
-        return ResponseEntity.ok(cepBody);
+        return cepBody;
     }
 }
