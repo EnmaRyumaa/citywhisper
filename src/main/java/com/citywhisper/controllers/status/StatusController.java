@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController()
-@RequestMapping(value = "/ping")
+@RequestMapping(value = "/v1/ping")
 public class StatusController {
 
     @GetMapping
