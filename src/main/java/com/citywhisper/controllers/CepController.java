@@ -1,6 +1,6 @@
 package com.citywhisper.controllers;
 
-import com.citywhisper.client.dto.ResponseDTO;
+import com.citywhisper.dto.ResponseDTO;
 import com.citywhisper.services.CepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

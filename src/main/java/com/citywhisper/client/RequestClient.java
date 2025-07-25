@@ -2,8 +2,8 @@ package com.citywhisper.client;
 
 import com.citywhisper.client.dto.ChatGPTRequestDTO;
 import com.citywhisper.client.dto.ChatGPTResponseDTO;
-import com.citywhisper.client.dto.RequestDTO;
-import com.citywhisper.client.dto.ResponseDTO;
+import com.citywhisper.dto.RequestDTO;
+import com.citywhisper.dto.ResponseDTO;
 import com.citywhisper.config.EnvConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;

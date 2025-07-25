@@ -1,4 +1,4 @@
-package com.citywhisper.client.dto;
+package com.citywhisper.dto;
 
 public class ResponseDTO {
 
