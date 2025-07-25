@@ -57,14 +57,14 @@ GET /cep/{cep}
 Example:
 
 ```http
-GET /cep/30140-110
+GET /cep/30140110
 ```
 
 Sample response:
 
 ```json
 {
-  "cep": "30140-110",
+  "cep": "30140110",
   "state": "MG",
   "city": "Belo Horizonte",
   "neighborhood": "Centro",
