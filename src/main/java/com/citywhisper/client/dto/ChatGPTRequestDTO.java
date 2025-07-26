@@ -37,4 +37,6 @@ public class ChatGPTRequestDTO {
     public List<ChatGPTMessage> getMessages() {
         return messages;
     }
+
+
 }

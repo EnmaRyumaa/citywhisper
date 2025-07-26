@@ -3,6 +3,7 @@ package com.citywhisper.services;
 import com.citywhisper.client.RequestClient;
 import com.citywhisper.client.chatgpt.builder.ChatBuilder;
 import com.citywhisper.client.dto.ChatGPTRequestDTO;
+import com.citywhisper.dto.ExternalPathEntityDTO;
 import com.citywhisper.dto.RequestDTO;
 import com.citywhisper.dto.ResponseDTO;
 import com.citywhisper.repositories.ExternalPathRepository;
@@ -20,17 +21,16 @@ public class CepService {
     private ExternalPathRepository repository;
 
     public ResponseDTO getCep(String cep) {
-        //TODO Adicionar endpoint no properties ou banco
         //TODO Implementar I18n e Logger
-        String endpoint = "https://brasilapi.com.br/api/cep/v2/";
 
+        ExternalPathEntityDTO externalPath = new ExternalPathEntityDTO(repository.findById(1L).get());
 
+        //TODO adicionar estrutura dinamica para garantir o acesso ao banco uma única vez ao vez de buscar o ID x vezes
 
-        if (cep.length() != 8) throw new ArgumentException("CEP need 8 digits for valid");
+        if (!cep.matches("\\d{8}"))
+            throw new ArgumentException("CEP is formed using just numbers and just 8 digits");
 
-        if (!cep.matches("\\d")) throw new ArgumentException("CEP is formed using just numbers");
-
-        RequestDTO requestDTO = new RequestDTO(cep, endpoint);
+        RequestDTO requestDTO = new RequestDTO(cep, externalPath.getPath());
 
         ResponseDTO cepBody = client.get(requestDTO).block();
 
