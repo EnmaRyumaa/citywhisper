@@ -11,4 +11,9 @@ public class ChatGPTResponseDTO {
     public List<Choice> getChoices() {
         return choices;
     }
+
+    public String getResponseGPT () {
+        return choices.get(0).getContentOfMessage();
+    }
+
 }

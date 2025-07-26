@@ -9,4 +9,9 @@ public class Choice {
     public Message getMessage() {
         return message;
     }
+
+    public String getContentOfMessage () {
+        return message.getContent();
+    }
+
 }

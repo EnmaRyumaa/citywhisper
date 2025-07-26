@@ -22,16 +22,15 @@ public class RequestClient {
     //TODO separação de get/post/put/delete adicionando endpoint como tributo durante instancia de Request.
     //TODO Utilizar o RequestDTO para chamada de RequestClient -> Dessa forma o DTO não fica inútil.
 
-    public Mono<ResponseEntity<ResponseDTO>> get (RequestDTO dto) {
+    public Mono<ResponseDTO> get (RequestDTO dto) {
         return webClient.build()
                     .get()
                     .uri(dto.getFullPath())
                     .retrieve()
-                    .bodyToMono(ResponseDTO.class)
-                    .map(ResponseEntity::ok);
+                    .bodyToMono(ResponseDTO.class);
     }
 
-    public Mono<ResponseEntity<ChatGPTResponseDTO>> post (ChatGPTRequestDTO dto) {
+    public Mono<ChatGPTResponseDTO> post (ChatGPTRequestDTO dto) {
         return webClient.build()
                 .post()
                 .uri("https://api.openai.com/v1/chat/completions")
@@ -39,7 +38,6 @@ public class RequestClient {
                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + EnvConfig.getApiKey())
                 .bodyValue(dto)
                 .retrieve()
-                .bodyToMono(ChatGPTResponseDTO.class)
-                .map(ResponseEntity::ok);
+                .bodyToMono(ChatGPTResponseDTO.class);
     }
 }

@@ -21,9 +21,11 @@ public class CepService {
 
         if (cep.length() != 8) throw new ArgumentException("CEP need 8 digits for valid");
 
+        if (!cep.matches("\\d")) throw new ArgumentException("CEP is formed using just numbers");
+
         RequestDTO requestDTO = new RequestDTO(cep, endpoint);
 
-        ResponseDTO cepBody = client.get(requestDTO).block().getBody();
+        ResponseDTO cepBody = client.get(requestDTO).block();
 
         ChatBuilder builder = new ChatBuilder();
         builder.addMessage(cepBody.getCity());
@@ -32,11 +34,7 @@ public class CepService {
 
         String respostaGPT = client.post(request)
                 .block()
-                .getBody()
-                .getChoices()
-                .get(0)
-                .getMessage()
-                .getContent();
+                .getResponseGPT();
 
         cepBody.addResponseGPT(respostaGPT);
 
