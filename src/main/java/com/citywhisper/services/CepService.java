@@ -17,6 +17,7 @@ public class CepService {
 
     public ResponseDTO getCep(String cep) {
         //TODO Adicionar endpoint no properties ou banco
+        //TODO Implementar I18n e Logger
         String endpoint = "https://brasilapi.com.br/api/cep/v2/";
 
         if (cep.length() != 8) throw new ArgumentException("CEP need 8 digits for valid");
