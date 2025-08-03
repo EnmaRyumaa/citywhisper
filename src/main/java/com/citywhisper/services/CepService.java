@@ -3,11 +3,9 @@ package com.citywhisper.services;
 import com.citywhisper.client.RequestClient;
 import com.citywhisper.client.chatgpt.builder.ChatBuilder;
 import com.citywhisper.client.dto.ChatGPTRequestDTO;
-import com.citywhisper.dto.ExternalPathDTO;
 import com.citywhisper.dto.RequestDTO;
 import com.citywhisper.dto.ResponseDTO;
 import com.citywhisper.entities.enums.ExternalPathEnum;
-import com.citywhisper.repositories.ExternalPathRepository;
 import com.citywhisper.services.exceptions.ArgumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +15,6 @@ public class CepService {
 
     @Autowired
     private RequestClient client;
-
-    @Autowired
-    private ExternalPathRepository repository;
 
     @Autowired
     private ExternalPathService pathService;
