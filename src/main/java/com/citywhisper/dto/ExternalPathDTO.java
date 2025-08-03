@@ -5,12 +5,14 @@ import com.citywhisper.entities.ExternalPath;
 public class ExternalPathDTO {
 
     private Long id;
+    private String description;
     private String path;
 
     public ExternalPathDTO() {}
 
     public ExternalPathDTO(ExternalPath entity) {
         this.id = entity.getId();
+        this.description = entity.getDescription();
         this.path = entity.getPath();
     }
 
@@ -20,6 +22,14 @@ public class ExternalPathDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getPath() {

@@ -5,11 +5,13 @@ import com.citywhisper.entities.ExternalPath;
 import com.citywhisper.entities.enums.ExternalPathEnum;
 import com.citywhisper.repositories.ExternalPathRepository;
 import com.citywhisper.services.exceptions.DatabaseException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ExternalPathService {
 
+    @Autowired
     private ExternalPathRepository repository;
 
     public ExternalPathService() {}
