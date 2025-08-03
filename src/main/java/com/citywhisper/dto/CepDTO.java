@@ -1,8 +1,5 @@
 package com.citywhisper.dto;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-
 public class CepDTO {
 
     public CepDTO() {}

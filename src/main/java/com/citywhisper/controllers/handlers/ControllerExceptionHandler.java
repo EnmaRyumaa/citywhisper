@@ -4,7 +4,6 @@ import com.citywhisper.dto.errors.CustomError;
 import com.citywhisper.services.exceptions.ArgumentException;
 import com.citywhisper.services.exceptions.DatabaseException;
 import jakarta.servlet.http.HttpServletRequest;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
