@@ -26,8 +26,9 @@ public class CepService {
 
     public ResponseDTO getCep(String cep) {
         //TODO Implementar I18n e Logger
-
-        //TODO adicionar estrutura dinamica para garantir o acesso ao banco uma única vez ao vez de buscar o ID x vezes
+        //TODO encadear chamadas com flatMap garantindo a reatividade do processo.
+        //TODO remover o .block das requisições HTTP garantindo que em toda camada seja retornando um Objeto do tipo Mono<>.
+        //TODO adicionar estrutura dinamica para garantir o acesso ao banco uma única vez ao vez de buscar o ID x vezes.
 
         if (!cep.matches("\\d{8}"))
             throw new ArgumentException("CEP is formed using just numbers and just 8 digits");
