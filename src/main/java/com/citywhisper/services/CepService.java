@@ -26,6 +26,7 @@ public class CepService {
 
     public ResponseDTO getCep(String cep) {
         //TODO Implementar I18n e Logger
+
         //TODO adicionar estrutura dinamica para garantir o acesso ao banco uma única vez ao vez de buscar o ID x vezes
 
         if (!cep.matches("\\d{8}"))
