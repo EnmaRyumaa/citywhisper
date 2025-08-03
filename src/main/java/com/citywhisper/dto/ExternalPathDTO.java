@@ -2,14 +2,14 @@ package com.citywhisper.dto;
 
 import com.citywhisper.entities.ExternalPath;
 
-public class ExternalPathEntityDTO {
+public class ExternalPathDTO {
 
     private Long id;
     private String path;
 
-    public ExternalPathEntityDTO() {}
+    public ExternalPathDTO() {}
 
-    public ExternalPathEntityDTO(ExternalPath entity) {
+    public ExternalPathDTO(ExternalPath entity) {
         this.id = entity.getId();
         this.path = entity.getPath();
     }

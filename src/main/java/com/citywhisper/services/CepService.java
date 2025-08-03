@@ -3,7 +3,7 @@ package com.citywhisper.services;
 import com.citywhisper.client.RequestClient;
 import com.citywhisper.client.chatgpt.builder.ChatBuilder;
 import com.citywhisper.client.dto.ChatGPTRequestDTO;
-import com.citywhisper.dto.ExternalPathEntityDTO;
+import com.citywhisper.dto.ExternalPathDTO;
 import com.citywhisper.dto.RequestDTO;
 import com.citywhisper.dto.ResponseDTO;
 import com.citywhisper.repositories.ExternalPathRepository;
@@ -23,7 +23,7 @@ public class CepService {
     public ResponseDTO getCep(String cep) {
         //TODO Implementar I18n e Logger
 
-        ExternalPathEntityDTO externalPath = new ExternalPathEntityDTO(repository.findById(1L).get());
+        ExternalPathDTO externalPath = new ExternalPathDTO(repository.findById(1L).get());
 
         //TODO adicionar estrutura dinamica para garantir o acesso ao banco uma única vez ao vez de buscar o ID x vezes
 

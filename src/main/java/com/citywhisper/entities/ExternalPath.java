@@ -13,6 +13,7 @@ public class ExternalPath {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String description;
     private String path;
 
     public ExternalPath() {}
@@ -28,6 +29,14 @@ public class ExternalPath {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getPath() {
