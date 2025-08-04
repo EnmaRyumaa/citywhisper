@@ -21,7 +21,7 @@ public class CepService {
 
     public ResponseDTO getCep(String cep) {
         //TODO Implementar I18n e Logger
-        //TODO encadear chamadas com flatMap garantindo a reatividade do processo.
+        //TODO encadear chamadas com flatMap garantindo a reatividade do processo. DONE
         //TODO remover o .block das requisições HTTP garantindo que em toda camada seja retornando um Objeto do tipo Mono<>.
         //TODO adicionar estrutura dinamica para garantir o acesso ao banco uma única vez ao vez de buscar o ID x vezes.
 
@@ -30,9 +30,21 @@ public class CepService {
 
         RequestDTO requestDTO = new RequestDTO(cep, pathService.recoverPath(ExternalPathEnum.BRASILAPI));
 
-        ResponseDTO cepBody = client.get(requestDTO).block();
+        ResponseDTO cepBody = client.get(requestDTO)
+                .flatMap(body -> {
+                    ChatBuilder builder = new ChatBuilder();
+                    builder.addMessage(body.getCity());
 
-        ChatBuilder builder = new ChatBuilder();
+                    ChatGPTRequestDTO request = new ChatGPTRequestDTO(builder);
+
+                    return client.post(request).map(gptResponse -> {
+                        body.addResponseGPT(gptResponse.getResponseGPT());
+                        return body;
+                    });
+                })
+                .block();
+
+        /*ChatBuilder builder = new ChatBuilder();
         builder.addMessage(cepBody.getCity());
 
         ChatGPTRequestDTO request = new ChatGPTRequestDTO(builder);
@@ -41,7 +53,7 @@ public class CepService {
                 .block()
                 .getResponseGPT();
 
-        cepBody.addResponseGPT(respostaGPT);
+        cepBody.addResponseGPT(respostaGPT);*/
 
         return cepBody;
     }
