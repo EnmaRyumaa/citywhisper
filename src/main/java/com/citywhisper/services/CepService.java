@@ -44,17 +44,6 @@ public class CepService {
                 })
                 .block();
 
-        /*ChatBuilder builder = new ChatBuilder();
-        builder.addMessage(cepBody.getCity());
-
-        ChatGPTRequestDTO request = new ChatGPTRequestDTO(builder);
-
-        String respostaGPT = client.post(request)
-                .block()
-                .getResponseGPT();
-
-        cepBody.addResponseGPT(respostaGPT);*/
-
         return cepBody;
     }
 }
