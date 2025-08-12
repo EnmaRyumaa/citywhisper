@@ -1,6 +1,7 @@
 package com.citywhisper.controllers;
 
 import com.citywhisper.dto.CepDTO;
+import com.citywhisper.dto.LocaleDTO;
 import com.citywhisper.dto.ResponseDTO;
 import com.citywhisper.services.CepService;
 import org.springframework.beans.factory.annotation.Autowired;

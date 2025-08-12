@@ -3,6 +3,7 @@ package com.citywhisper.services;
 import com.citywhisper.client.RequestClient;
 import com.citywhisper.client.chatgpt.builder.ChatBuilder;
 import com.citywhisper.client.dto.ChatGPTRequestDTO;
+import com.citywhisper.dto.LocaleDTO;
 import com.citywhisper.dto.RequestDTO;
 import com.citywhisper.dto.ResponseDTO;
 import com.citywhisper.entities.enums.ExternalPathEnum;

@@ -2,8 +2,6 @@ package com.citywhisper.dto;
 
 public class CepDTO {
 
-    public CepDTO() {}
-
     private String cep;
 
     public String getCep() {
