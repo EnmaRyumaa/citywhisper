@@ -1,21 +1,24 @@
-package com.citywhisper.entities;
+package com.citywhisper.dto;
 
-import jakarta.persistence.*;
+import com.citywhisper.entities.AgentsConfig;
 
-import java.util.Objects;
+public class AgentsConfigDTO {
 
-@Entity
-public class AgentsConfig {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-
-    @Column(length = 4000)
     private String roleSystem;
     private String roleUser;
     private String roleAssistent;
+
+    public AgentsConfigDTO() {}
+
+    public AgentsConfigDTO(AgentsConfig agentsConfig) {
+        this.id = agentsConfig.getId();
+        this.description = agentsConfig.getDescription();
+        this.roleSystem = agentsConfig.getRoleSystem();
+        this.roleUser = agentsConfig.getRoleUser();
+        this.roleAssistent = agentsConfig.getRoleAssistent();
+    }
 
     public Long getId() {
         return id;
@@ -55,22 +58,5 @@ public class AgentsConfig {
 
     public void setRoleAssistent(String roleAssistent) {
         this.roleAssistent = roleAssistent;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AgentsConfig that = (AgentsConfig) o;
-        return Objects.equals(id, that.id)
-                && Objects.equals(description, that.description)
-                && Objects.equals(roleSystem, that.roleSystem)
-                && Objects.equals(roleUser, that.roleUser)
-                && Objects.equals(roleAssistent, that.roleAssistent);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, description, roleSystem, roleUser, roleAssistent);
     }
 }
